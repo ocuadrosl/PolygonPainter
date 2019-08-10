@@ -16,11 +16,15 @@ DrawingArea::~DrawingArea()
     delete ui;
 }
 
+/*
 
+Paint events are sent to widgets that need to UPDATE or REPAINT themselves,
+*/
 void DrawingArea::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
 
+    //do not draw 0 sides polygons
     if(qPoints.empty())
         return;
 
@@ -31,6 +35,7 @@ void DrawingArea::paintEvent(QPaintEvent *)
 
     }
 
+    //draw last side: from begin to last
     painter.drawLine(*qPoints.begin(), *qPoints.rbegin());
 
 }

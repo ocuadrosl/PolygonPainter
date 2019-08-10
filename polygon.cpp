@@ -7,6 +7,7 @@ Polygon::Polygon()
 }
 
 Polygon::Polygon(int radius, int sides, int centerX, int centerY):
+    // comentar acá
     radius(radius),
     sides(sides),
     centerX(centerX),
@@ -35,6 +36,10 @@ void Polygon::setCenter(int x, int y)
 
 }
 
+/*
+Computing circle points using the parametric equation
+
+*/
 
 Polygon::qPointsT Polygon::compute() const
 {
@@ -42,10 +47,10 @@ Polygon::qPointsT Polygon::compute() const
 
     const float pi = 3.14f;
 
-    for (float t = 0.f; t < 2*pi; t+=(2*pi/sides))
+    for (float t = 0.f; t < 2.f*pi; t+=(2.f*pi/sides))
     {
-        int x = centerX + static_cast<int>(std::ceil(radius*std::cos(t)));
-        int y = centerY + static_cast<int>(std::ceil(radius*std::sin(t)));
+        int x = centerX + static_cast<int>(radius*std::cos(t));
+        int y = centerY + static_cast<int>(radius*std::sin(t));
 
         qPoints.push_back(QPoint(x, y));
 

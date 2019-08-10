@@ -4,6 +4,11 @@
 #include <vector>
 #include <iostream>
 
+/*
+Polygon class
+@author Oscar
+
+*/
 class Polygon
 {
     using qPointsT = std::vector<QPoint>;
@@ -15,6 +20,7 @@ public:
     void setSides(int sides);
     void setCenter(int x, int y);
 
+    // const because this does not modify member variables
     qPointsT compute() const ;
 
 private:
@@ -22,8 +28,6 @@ private:
     int sides;
     int centerX;
     int centerY;
-
-
 };
 
 #endif // POLYGON_H
